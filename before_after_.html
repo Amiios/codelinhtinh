@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Doc</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        .demo::before {
+            content: "abc ";
+            color: red;
+        }
+
+        .demo::after {
+            content: " xyz";
+            font-style: italic;
+        }
+
+        .vien-gia {
+            background-color: palegoldenrod;
+            width: 100px;
+            height: 60px;
+            text-align: center;
+            padding: 10px;
+            box-shadow: inset 0 3px #069313;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="demo">Nội dung demo</h1>
+    <div class="vien-gia">viền giả</div>
+    <script>
+
+    </script>
+</body>
+
+</html>
