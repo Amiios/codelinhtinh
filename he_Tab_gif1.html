@@ -40,16 +40,7 @@
             position: relative;
         }
 
-        .tab-nav .cur-tab::after {
-            content: "";
-            background-color: #00742c;
-            height: 1px;
-            width: 1500px;
-            position: absolute;
-            bottom: 0;
-            left: 100%;
-        }
-
+        .tab-nav .cur-tab::after,
         .tab-nav .cur-tab::before {
             content: "";
             background-color: #00742c;
@@ -57,6 +48,15 @@
             width: 1500px;
             position: absolute;
             bottom: 0;
+
+        }
+
+        .tab-nav .cur-tab::after {
+            left: 100%;
+        }
+
+        .tab-nav .cur-tab::before {
+
             right: 100%;
         }
 
