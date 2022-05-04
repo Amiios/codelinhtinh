@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>demojsdisplay</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <div class="nd">
+        <div>MOT</div>
+        <div>Hai</div>
+        <div>ba</div>
+        <div>bon</div>
+    </div>
+    <script>
+        // đi tìm 4 thẻ div là con trực tiếp của nd
+        let boDiv = document.querySelectorAll(`.nd > div`);
+
+        //yêu cầu cả 4 cái đều dùng display:none
+        boDiv.forEach(d => d.style.display = `none`);
+
+        //yêu cầu cái div thứ 3 hiển thị trở lại
+        boDiv[2].style.display = `block`;
+    </script>
+</body>
+
+</html>
