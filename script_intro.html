@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            .high-light {text-decoration: none; background-color: yellow;}
+        </style>
+    </head>
+    <body>
+        <p>Cửu Long Sơn tựCửu Long Sơn tựCửu Long Sơn tựCửu Long Sơn tự
+            <a href="" id="def">Cửu Long Sơn tự</a>Cửu Long Sơn tựCửu Long Sơn tựCửu Long Sơn tựCửu Long Sơn tự
+        </p>
+        
+        <button id="nut1">Tô Sáng</button>
+
+        <script>
+            let theLink = document.getElementById(`def`);
+            let n1 = document.getElementById(`nut1`);
+
+            const to_sang = () => {
+                // làm cho theLink thêm vào 1 class có tên high-light
+                theLink.classList.toggle(`high-light`);
+            }
+                /* n1 bị click (hoặc touch) thì to_sang (tô sáng)
+                */ 
+
+            n1.addEventListener(`click`, to_sang);
+        </script>
+    </body>
+</html>

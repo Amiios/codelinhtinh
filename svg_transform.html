@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ED</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <style>
+        .demo {
+            width: 25px;
+            height: 20px;
+        }
+
+        .demo rect {
+            fill: brown;
+            transform-origin: center;
+            transform-box: fill-box;
+        }
+
+        #nut1 {
+            background-color: transparent;
+            border: none;
+        }
+
+        .demo .mid {
+            transition: opacity 0.3s;
+        }
+
+        .demo .top,
+        .demo .bot {
+            transition: transform 0.3s, fill 0.3s;
+        }
+
+        .show-menu .demo .mid {
+            opacity: 0;
+        }
+
+        .show-menu .demo .top {
+            transform: translate(0, 8px) rotate(45deg);
+            fill: blue;
+        }
+
+        .show-menu .demo .bot {
+            transform: translate(0, -8px) rotate(-45deg);
+            fill: blue;
+        }
+
+        #the-menu {
+            width: 100%;
+            height: 100%;
+            background-color: #4b98d9;
+            position: fixed;
+            left: 0;
+            top: 80px;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            transition: clip-path 0.3s;
+        }
+
+        .show-menu #the-menu {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .reset-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #the-menu a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-family: Verdana sans-serif
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <svg class="demo">
+        <rect width="25" height="3" x="0" y="0" class="top"></rect>
+        <rect width="25" height="3" x="0" y="8" class="mid"></rect>
+        <rect width="25" height="3" x="0" y="16" class="bot"></rect>
+
+    </svg>
+    <button id="nut1"></button>
+
+
+    <script>
+
+        let n1 = document.getElementById(`nut1`);
+        const showMenu = () => {
+            document.body.classList.toggle(`show-menu`);
+        }
+        n1.addEventListener(`click`, showMenu);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aloha</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <style>
+        ::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        .reset-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .demo {
+            display: flex;
+        }
+
+        .demo li {
+            margin-right: 10px;
+            background-color: aquamarine;
+            padding: 15px 30px;
+            border-radius: 30px;
+        }
+
+        .demo .active {
+            background-color: rgb(9, 69, 49);
+            color: #fff;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <ul class="reset-list demo">
+        <li class="active">Mô tả</li>
+        <li>Hình ảnh</li>
+        <li>Video</li>
+        <li>Đánh giá</li>
+    </ul>
+
+
+    <script>
+        //bo_tab là đại diện cho 4 thẻ li con của .demo
+        /// trong css dấu > hiểu là xuống 1 cấp
+
+        let bo_tab = document.querySelectorAll(`.demo > li`);
+
+        const bamTab = (e) => {
+            console.log(`da co click`);
+            bo_tab.forEach(t => t.classList.remove(`active`));
+            // cái đang bị click là e.currentTarget
+            e.currentTarget.classList.add(`active`);
+        }
+
+        bo_tab.forEach(b => b.addEventListener(`click`, bamTab));
+    </script>
+</body>
+
+</html>

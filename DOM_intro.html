@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+        <div id="abc"></div>
+
+        <script>
+
+        //đi tìm thẻ có id abc và dùng biến oABC để tham chiếu đến (tham khảo)
+
+        let oABC = document.getElementById(`abc`);
+
+        let s = ``;
+        for (let i=1; i<=5; i++){
+            s= s + `<p>${i}</p>`;
+        }
+
+        oABC.innerHTML = s;
+
+        </script>
+    </body>
+</html>

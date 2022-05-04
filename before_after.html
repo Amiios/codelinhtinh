@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>Untitled Document</title>
+	<style>
+		.demo::before{
+			content: "abc";
+			color: red; margin-right: 10px;
+		}
+		.demo::after{
+			content: "def";
+			color: blue; margin-left: 10px;
+		}
+		.tieu-de {
+			padding: 10px 0;
+			position: relative;
+		}
+		.tieu-de::before{
+			content: ""; width: 80px; height: 4px;
+			background-color: #F66205;
+			position: absolute; left: 0; bottom: 0;
+			border-radius: 4px;
+		}
+	</style>
+	
+</head>
+
+<body>
+	<p class="demo"> Noi dung cua the </p>
+	<h1 class="tieu-de">Nội thất</h1>
+</body>
+</html>
