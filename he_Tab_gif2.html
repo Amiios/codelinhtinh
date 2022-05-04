@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        .reset-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+
+        .tab-nav {
+            display: flex;
+            overflow: hidden;
+        }
+
+        .tab-nav li {
+            margin-right: 10px;
+            margin-left: 15px;
+            padding: 15px 30px;
+            border: solid #999;
+            border-width: 1px 1px 0 1px;
+        }
+
+        .tab-nav .cur-tab {
+            color: #00742c;
+            box-shadow: inset 0 3px #00742c;
+            border-color: #00742c;
+            position: relative;
+        }
+
+        .tab-nav .cur-tab::after {
+            content: "";
+            background-color: #00742c;
+            height: 1px;
+            width: 1500px;
+            position: absolute;
+            bottom: 0;
+            left: 100%;
+        }
+
+        .tab-nav .cur-tab::before {
+            content: "";
+            background-color: #00742c;
+            height: 1px;
+            width: 1500px;
+            position: absolute;
+            bottom: 0;
+            right: 100%;
+        }
+
+        .nd {
+            margin-top: 20px;
+        }
+
+        .nd>div:not(:first-child) {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <section class="he-tab">
+        <ul class="reset-list tab-nav">
+            <li class="cur-tab">Mô tả</li>
+            <li>Hình ảnh</li>
+            <li>Video</li>
+            <li>Đánh giá</li>
+        </ul>
+        <div class="nd">
+            <div>Chi tiết mô tả</div>
+            <div>Hình ảnh</div>
+            <div>Clip nhận xét</div>
+            <div>Điểm số</div>
+        </div>
+    </section>
+
+    <script>
+        let arTabs = Array.from(document.querySelectorAll(`.he-tab .tab-nav > li`))
+
+        const bamTab = (e) => {
+            arTabs.forEach(t => t.classList.remove(`cur-tab`));
+            //cái đang bị click là e.currentTarget
+            e.currentTarget.classList.add(`cur-tab`);
+
+            let boDiv = document.querySelectorAll(`.he-tab .nd > div`);
+            //làm cho tất cả ẩn - dùng display:none
+            boDiv.forEach(d => d.style.display = `none`);
+            //tìm số n là thứ tự của cái đang bị click
+            let n = arTabs.indexOf(e.currentTarget);
+            //yêu cầu div thứ n  của .nd dùng lại display:block
+            boDiv[n].style.display = `block`;
+
+        }
+
+        arTabs.forEach(b => b.addEventListener(`click`, bamTab));
+    </script>
+</body>
+
+</html>
