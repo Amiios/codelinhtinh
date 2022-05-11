@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .reset-list {list-style: none; padding:0; margin:0;}
+
+        .ba-dd {padding-left: 30px; padding-top: 30px;
+        counter-reset: sodem;}
+        .ba-dd li  {
+            border:solid 1px ; padding: 15px 15px 15px 40px;
+            border-radius: 5px; margin-bottom: 40px;position:relative;
+            counter-increment: sodem;}
+    
+         .ba-dd li::before {
+            content:counter(sodem); color:#FFF;
+            background-color: #0060BA;
+            width: 60px; height: 60px; border-radius: 50%;
+            position:absolute;left: -30px;; top:50%;
+            transform: translate(0,-50%);
+            display:flex; justify-content: center;
+            align-items: center;font-size: 2rem;} 
+        .ba-dd svg  {width: 30px;height: 30px;
+            /* background-color: palegoldenrod; */
+            position: absolute; left:50%; 
+            transform:translate(calc(-50% - 15px),0); 
+            top:calc(100% + 10px);}
+        .ba-dd br {display:none;}
+        
+        @media screen and (min-width: 768px){
+            .ba-dd br {display:inline;}
+            .ba-dd {padding-left: 0; padding-top: 60px;
+                display: grid; grid-template-columns: 1fr 1fr 1fr;
+                grid-gap:50px; }
+            .ba-dd svg {top:50%; 
+                transform: translate(0,-50%) rotate(-90deg);
+                left:calc(100% + 10px)
+            }
+            .ba-dd li  { padding: 40px  15px 15px 15px;
+            text-align: center;}
+            .ba-dd li::before {
+                top: -30px;left: 50%;transform: translate(-50%,0)}
+
+            }
+            /* hết phần @768 */
+            @media screen and (min-width: 992px){
+                .ba-dd {max-width: 1140px;
+                background-color: palegoldenrod;
+            margin-left: auto; margin-right: auto;}
+        }
+            /* margin left-right: canh giữa trên giao diện */
+           
+            /* hết phần @992 */
+            
+
+    </style>
+
+</head>
+<body>
+    <ol class="reset-list  ba-dd">
+        <li>hệ thống <br>  bưu cục rải  xuống
+            <svg>
+                <use xlink:href="symbol-defs.svg#icon-angle-down"></use>
+            </svg>
+        </li>
+        <li>Nhanh  chóng, an toàn,<br> giá thành  thấp
+            <svg>
+                <use xlink:href="symbol-defs.svg#icon-angle-down"></use>
+            </svg>
+        </li>
+        <li>Đôi ngũ  shipper và<br> phương  tiện lớn
+        </li>
+    </ol>
+    
+</body>
+</html>

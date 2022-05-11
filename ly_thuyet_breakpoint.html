@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       /* các dòng css sẽ áp dụng cho cả 3 cỡ */
+       .demo {color:red; text-align: center; font-size: italic;}
+       @media screen and  (min-width:768px) {
+           /* từ cỡ  768px  trở lên:medium+large+.. */
+           .demo {text-align: left; font-style: normal;
+           }
+       } /*hết phần  @768px*/
+
+       /* ................ */
+       @media screen and (min-width:992px){
+           /* từ  cỡ 992px trở lênn:large + .. */
+           .demo {color:blue; font-style: italic;}
+           } /* hết phần  @992px*/
+          
+           /* từ dòng  này  trở  đi  không  nên  viết  css  nữa */
+        
+    </style>
+</head>
+<body>
+    <h1 class="demo">Định dạng thay đổi khi chuyển cỡ thiết bị view</h1>
+  
+</body>
+</html>

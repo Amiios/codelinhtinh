@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,*::after,*::before{box-sizing: border-box;}
+        body{margin: 0; padding: 0; background-color: #afafaf;}
+
+        p{margin: 20px 20px 0;}
+        .demo{display: flex; margin: 10px 20px 20px 20px; padding: 20px 20px 0px; background-color: #fff; 
+            max-width: 300px; min-width: 300px; height: 106px;
+            border-radius: 10px; border: solid 1px #828282; position: relative;}
+
+        .demo input[type="radio"]{display: none;}
+        .demo input[type="radio"] + label{
+            /* Tìm thẻ label là thẻ liền kề của input radio */
+            display: flex; justify-content: center; align-items: center;
+            width: 30px; height: 30px; border: solid 1px #fff;
+            text-indent: none;
+            margin-right: 10px; border-radius: 50%;
+            position: relative;
+        }
+        .demo input[type="radio"] + label::before{content: ""; width: 37px; height: 37px; 
+        border-radius: 50%; border: solid 1px rgb(255, 255, 255); position: absolute; transition: border-color 0.3s, border 0.3s}
+
+        .demo input[type="radio"] + label[for ="s36"] {background-image: -webkit-linear-gradient(left, rgb(158, 11, 11) 50%,rgb(212, 102, 102) 50%)}
+        .demo input[type="radio"] + label[for ="s37"] {background-image: -webkit-linear-gradient(left, rgb(12, 117, 0) 50%,rgb(87, 200, 114) 50%)}
+        .demo input[type="radio"] + label[for ="s38"] {background-image: -webkit-linear-gradient(left, rgb(145, 76, 24) 50%,rgb(227, 131, 67) 50%)}
+        .demo input[type="radio"] + label[for ="s39"] {background-image: -webkit-linear-gradient(left, rgb(202, 247, 0) 50%,rgb(221, 202, 76) 50%)}
+        .demo input[type="radio"] + label[for ="s40"] {background-image: -webkit-linear-gradient(left, rgb(168, 4, 166) 50%,rgb(228, 106, 239) 50%)}
+        .demo input[type="radio"] + label[for ="s41"] {background-image: -webkit-linear-gradient(left, rgb(115, 115, 115) 50%,rgb(1, 1, 1) 50%)}
+        
+        /* :checked là xử lý radio checkbox khi dc chọn */
+        .demo input[type="radio"]:checked + label::before{content: ""; width: 35px; height: 35px; 
+        border-radius: 50%; border: solid 1px blue; position: absolute;}
+
+        .noi-dung{ position: absolute; top: 100%; left: 50%; transform: translate(-50%,-36px);}
+        .noi-dung >div:not(.bl){display: none;}
+        .noi-dung .bl{display: block;}
+    </style>
+</head>
+<body>
+    <p>Chọn màu sắc:</p>
+    <div class="demo">
+
+        <!-- dùng id vag for giống nhau để click chọn label dc -->
+        <input type="radio" id="s36" name="sg" checked> 
+        <label for="s36"></label>
+
+        <input type="radio" id="s37" name="sg"> 
+        <label for="s37"></label>
+
+        <input type="radio" id="s38" name="sg"> 
+        <label for="s38"></label>
+
+        <input type="radio" id="s39" name="sg"> 
+        <label for="s39"></label>
+
+        <input type="radio" id="s40" name="sg"> 
+        <label for="s40"></label>
+
+        <input type="radio" id="s41" name="sg"> 
+        <label for="s41"></label>
+
+        <div class="noi-dung">
+            <div>Đỏ mận</div>
+            <div>Xanh lá cây</div>
+            <div>Cam nâu</div>
+            <div>Vàng chanh</div>
+            <div>Tím cà</div>
+            <div>Xám đen</div>
+        </div>
+    </div>
+    <script>
+        let check = Array.from(document.querySelectorAll(`.demo > label`));
+        const Color = (r) => {
+            let Ifor = document.querySelectorAll(`.demo .noi-dung > div`);
+            Ifor.forEach(r => r.classList.remove(`bl`));
+            let n = check.indexOf(r.currentTarget);
+            Ifor[n].classList.add(`bl`);
+
+        }
+        check.forEach(c => c.addEventListener(`click`,Color));
+    </script>
+</body>
+</html>

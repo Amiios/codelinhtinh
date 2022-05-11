@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *, *::before, *, *::after {box-sizing: border-box;}
+        .reset-list {list-style: none; padding:0;margin:0;}
+        svg {width: 20px; height: 20px;}
+        /* xử lý khung tròn thành khung vuông */
+        body {background-color: #EEEEED;}
+        .demo {background-color: #FFF; padding:20px; border-radius: 5px;
+            border: solid 1px #bbb;}
+        .demo input[type="radio"] {display:none;}
+        .demo input[type="radio"] + label {
+            /* tìm thẻ label là thẻ em liền kề của nút tròn */
+            display:flex; justify-content: center; align-items: center; 
+            /* border: solid 1px #87A3E1; */
+            text-indent: -9999px;
+            width: 30px;height: 30px;
+            margin-right: 15px;
+            border-radius: 50%;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+            position:relative;
+        }
+        /* // bắt đầu  tiếp  ngày 9/5// */
+        .demo input[type="radio"]+ label::before {content: "";
+        width:110%; height:110%; border: solid 1px #747474; border-radius: 50%;
+        position:absolute; left:50%; top:50%; transform: translate(-50%,-50%); 
+        width:125%; height: 125%; opacity: 0.4;
+        transition: width  0.3s , height 0.3s, opacity 0.3s; }
+
+        .demo input[type="radio"]:checked+ label::before {
+            width:110%; height: 110%; opacity: 1;
+        }
+           
+        .demo  label[for="s36"]{
+            background-image:-webkit-linear-gradient(left, rgb(175, 10, 10) 50%, rgb(226, 47, 253) 50%) ;
+        }
+        .demo  label[for="s37"]{
+            background-image:-webkit-linear-gradient(left, rgb(24, 243, 90) 50%, rgb(203, 245, 209) 50%) ;
+         }
+        .demo  label[for="s38"]{
+            background-image:-webkit-linear-gradient(left, rgb(243, 82, 24) 50%, rgb(245, 227, 203) 50%) ;
+        }
+        .demo  label[for="s39"]{
+            background-image:-webkit-linear-gradient(left, rgb(43, 109, 252) 50%, rgb(211, 203, 245) 50%) ;
+        }
+        .demo {display:flex;} */
+        /*  */
+        
+      .demo input[type="radio"]:checked + label {
+            background-color: #1B44A0; color: #FFF;
+            border-color: #1B44A0;} 
+        .demo {display:flex; flex-wrap: wrap;}
+        .demo p  {width:100%; margin-bottom: 0;}
+
+    </style>
+</head>
+<body>
+    <p>chọn màu sắc</p>
+    <div class="demo">
+        <input type="radio" id="s36" name="shoes">
+        <label for="s36">đỏ</label>
+        <input type="radio" id="s37" name="shoes">
+        <label for="s37">Xanh lá</label>
+        <input type="radio" id="s38" name="shoes">
+        <label for="s38">vàng</label>
+        <input type="radio" id="s39" name="shoes">
+        <label for="s39">đen</label>
+        <p id=kq-mau>đỏ</p>
+    </div>
+    <script>
+        let boLabels  = document.querySelectorAll(`.demo label `);
+        const chonMau = (e) => {
+           let s = e.currentTarget.innerHTML;
+           document.getElementById(`kq-mau`).innerHTML = s;
+           console.log(s)
+        }
+        boLabels.forEach(b => b.addEventListener(`click`,chonMau));
+    </script>
+</body>
+</html>
